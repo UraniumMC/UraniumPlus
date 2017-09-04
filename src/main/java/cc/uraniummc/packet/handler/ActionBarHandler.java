@@ -14,6 +14,7 @@ import net.minecraft.network.play.server.S02PacketChat;
  * Created by xjboss on 2017/9/4.
  */
 public class ActionBarHandler implements IMessageHandler<PacketChatWithType,IMessage> {
+    @SideOnly(Side.CLIENT)
     public static void handleChat(INetHandlerPlayClient pClient,PacketChatWithType pPacket)
     {
         if(pPacket.getType() != 2) pClient.handleChat(new S02PacketChat(pPacket.getChat()));
@@ -22,6 +23,7 @@ public class ActionBarHandler implements IMessageHandler<PacketChatWithType,IMes
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public IMessage onMessage(PacketChatWithType message, MessageContext ctx) {
         handleChat(ctx.getClientHandler(),message);
