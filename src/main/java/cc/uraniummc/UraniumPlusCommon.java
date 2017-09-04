@@ -1,10 +1,9 @@
 package cc.uraniummc;
 
 import cc.uraniummc.packet.S45PacketTitle;
-import cc.uraniummc.packet.client.PacketChatWithType;
+import cc.uraniummc.packet.PacketChatWithType;
 import cc.uraniummc.packet.handler.ActionBarHandler;
 import cc.uraniummc.packet.handler.TitleHandler;
-import com.google.common.collect.BiMap;
 import org.objectweb.asm.Type;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -13,7 +12,6 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.network.EnumConnectionState;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 

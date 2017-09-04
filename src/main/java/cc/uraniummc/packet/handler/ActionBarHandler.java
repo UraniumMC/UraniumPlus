@@ -1,8 +1,7 @@
 package cc.uraniummc.packet.handler;
 
 import cc.uraniummc.UraniumPlusClient;
-import cc.uraniummc.packet.S45PacketTitle;
-import cc.uraniummc.packet.client.PacketChatWithType;
+import cc.uraniummc.packet.PacketChatWithType;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;

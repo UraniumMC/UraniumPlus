@@ -1,4 +1,4 @@
-package cc.uraniummc.packet.client;
+package cc.uraniummc.packet;
 
 import cc.uraniummc.packet.handler.ActionBarHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
