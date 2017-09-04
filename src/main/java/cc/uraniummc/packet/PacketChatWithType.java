@@ -19,8 +19,13 @@ import java.io.IOException;
 @SideOnly(Side.CLIENT)
 @Getter
 public class PacketChatWithType implements IMessage {
-    private Byte type;
+    private byte type;
     private IChatComponent chat;
+
+    public PacketChatWithType(IChatComponent chat,byte type) {
+        this.type = type;
+        this.chat = chat;
+    }
 
     @Override
     public void fromBytes(ByteBuf buf) {
