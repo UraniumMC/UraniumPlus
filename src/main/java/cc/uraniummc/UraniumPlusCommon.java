@@ -35,7 +35,7 @@ public class UraniumPlusCommon {
         chancel.registerMessage(TitleHandler.class, S45PacketTitle.class,0, Side.CLIENT);
         String mn= FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(EnumConnectionState.class.getName(),"func_150756_b",Type.getMethodDescriptor(org.objectweb.asm.Type.VOID_TYPE, Type.INT_TYPE,Type.getType(Class.class)));
         try {
-            Method regCPmsg = EnumConnectionState.class.getDeclaredMethod(mn,Integer.class,Class.class);
+            Method regCPmsg = EnumConnectionState.class.getDeclaredMethod(mn,int.class,Class.class);
             regCPmsg.setAccessible(true);
             regCPmsg.invoke(EnumConnectionState.PLAY,49,S45PacketTitle.class);
             mn=FMLDeobfuscatingRemapper.INSTANCE.mapFieldName(EnumConnectionState.class.getName(),"field_150770_i",Type.getType(BiMap.class).getDescriptor());
