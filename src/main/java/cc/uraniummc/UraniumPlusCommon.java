@@ -37,7 +37,7 @@ public class UraniumPlusCommon {
         try {
             Method regCPmsg = EnumConnectionState.class.getDeclaredMethod(mn,int.class,Class.class);
             regCPmsg.setAccessible(true);
-            regCPmsg.invoke(EnumConnectionState.PLAY,49,S45PacketTitle.class);
+            regCPmsg.invoke(EnumConnectionState.PLAY,69,S45PacketTitle.class);
             mn=FMLDeobfuscatingRemapper.INSTANCE.mapFieldName(EnumConnectionState.class.getName(),"field_150770_i",Type.getType(BiMap.class).getDescriptor());
             Field CPmap=EnumConnectionState.class.getDeclaredField("field_150770_i");
                 CPmap.setAccessible(true);
