@@ -32,6 +32,7 @@ public class UraniumPlusMod extends DummyModContainer {
         meta.updateUrl="https://ci.xjboss.net/jobs/UraniumPlus";
         meta.screenshots=new String[0];
         meta.logoFile="";
+
     }
     @Override
     public boolean registerBus(EventBus bus, LoadController controller)
