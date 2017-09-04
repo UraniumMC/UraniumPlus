@@ -1,0 +1,5 @@
+commands.title.success=标题命令执行成功
+commands.title.usage=/title <玩家> <title|subtitle|actionbar|clear|reset|times> …
+commands.title.usage.clear=/title <玩家> clear|reset
+commands.title.usage.times=/title <玩家> times <淡入时间> <保持时间> <淡出时间>
+commands.title.usage.title=/title <玩家> title|subtitle|actionbar <纯json标题>

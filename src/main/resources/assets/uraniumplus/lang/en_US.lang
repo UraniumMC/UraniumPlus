@@ -1,0 +1,5 @@
+commands.title.usage=/title <player> title|subtitle|actionbar|clear|reset|times ...
+commands.title.usage.title=/title <player> title|subtitle|actionbar <raw json title>
+commands.title.usage.clear=/title <player> clear|reset
+commands.title.usage.times=/title <player> times <fadeIn> <stay> <fadeOut>
+commands.title.success=Title command successfully executed
