@@ -16,7 +16,6 @@ import java.io.IOException;
 /**
  * Created by xjboss on 2017/9/4.
  */
-@SideOnly(Side.CLIENT)
 @Getter
 public class PacketChatWithType implements IMessage {
     private byte type;
