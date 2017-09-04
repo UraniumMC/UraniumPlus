@@ -13,7 +13,6 @@ import net.minecraft.network.play.server.S02PacketChat;
 /**
  * Created by xjboss on 2017/9/4.
  */
-@SideOnly(Side.CLIENT)
 public class ActionBarHandler implements IMessageHandler<PacketChatWithType,IMessage> {
     public static void handleChat(INetHandlerPlayClient pClient,PacketChatWithType pPacket)
     {
