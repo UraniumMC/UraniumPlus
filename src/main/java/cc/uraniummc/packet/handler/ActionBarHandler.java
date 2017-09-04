@@ -23,7 +23,6 @@ public class ActionBarHandler implements IMessageHandler<PacketChatWithType,IMes
         }
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public IMessage onMessage(PacketChatWithType message, MessageContext ctx) {
         handleChat(ctx.getClientHandler(),message);
