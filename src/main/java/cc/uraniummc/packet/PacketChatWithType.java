@@ -21,6 +21,9 @@ public class PacketChatWithType implements IMessage {
     private byte type;
     private IChatComponent chat;
 
+    public PacketChatWithType() {
+
+    }
     public PacketChatWithType(IChatComponent chat,byte type) {
         this.type = type;
         this.chat = chat;

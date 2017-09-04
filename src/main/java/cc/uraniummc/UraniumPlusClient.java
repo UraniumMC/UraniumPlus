@@ -1,8 +1,10 @@
 package cc.uraniummc;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.Sys;
 
 /**
  * Created by xjboss on 2017/9/4.
@@ -41,6 +44,8 @@ public class UraniumPlusClient {
 
     UraniumPlusClient(){
         MinecraftForge.EVENT_BUS.register(this);
+        FMLCommonHandler.instance().bus().register(this);
+        instance=this;
     }
 
     @SubscribeEvent(priority= EventPriority.LOWEST)
@@ -48,15 +53,28 @@ public class UraniumPlusClient {
         if(gui==null){
             gui=(GuiIngameForge)(mc.ingameGUI);
         }
-        if(evt.type== RenderGameOverlayEvent.ElementType.TEXT){
+        if(evt.type== RenderGameOverlayEvent.ElementType.ALL){
             ScaledResolution res = gui.getResolution();
             int width = res.getScaledWidth();
             int height = res.getScaledHeight();
             renderTitle(width, height, evt.partialTicks);
         }
     }
+    @SubscribeEvent
+    public void onTick(TickEvent.RenderTickEvent tick){
+        if(tick.phase== TickEvent.Phase.START) {
+            if (this.titlesTimer > 0) {
+                --this.titlesTimer;
+
+                if (this.titlesTimer <= 0) {
+                    this.displayedTitle = "";
+                    this.displayedSubTitle = "";
+                }
+            }
+        }
+    }
     public FontRenderer getFontRenderer(){
-        return RenderManager.instance.getFontRenderer();
+        return mc.fontRenderer;
     }
     protected void renderTitle(int width, int height, float partialTicks)
     {
@@ -109,6 +127,7 @@ public class UraniumPlusClient {
     }
     public void displayTitle(String title, String subTitle, int timeFadeIn, int displayTime, int timeFadeOut)
     {
+        System.out.println("Now display title");
         if (title == null && subTitle == null && timeFadeIn < 0 && displayTime < 0 && timeFadeOut < 0)
         {
             this.displayedTitle = "";

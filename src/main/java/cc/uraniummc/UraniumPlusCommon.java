@@ -52,5 +52,8 @@ public class UraniumPlusCommon {
         }catch(Exception e){
             e.printStackTrace();
         }
+        if(evt.getSide()==Side.CLIENT){
+            new UraniumPlusClient();
+        }
     }
 }
