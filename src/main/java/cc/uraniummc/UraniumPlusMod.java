@@ -43,7 +43,7 @@ public class UraniumPlusMod extends DummyModContainer {
     @Subscribe
     public void modConstruction(FMLConstructionEvent evt)
     {
-        NetworkRegistry.INSTANCE.register(this, this.getClass(), null, evt.getASMHarvestedData());
+
     }
     @Subscribe
     public void modPost(FMLPostInitializationEvent evt){
