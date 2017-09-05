@@ -142,6 +142,7 @@ public class S45PacketTitle extends Packet implements IMessage
         TITLE,
         SUBTITLE,
         TIMES,
+        ACTIONBAR,
         CLEAR,
         RESET;
 
