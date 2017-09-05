@@ -167,6 +167,10 @@ public class UraniumPlusClient {
         }
     }
 
+    public void setRecordPlaying(String text, boolean isPlaying)
+    {
+        gui.func_110326_a(text, isPlaying);
+    }
     public void setRecordPlaying(IChatComponent component, boolean isPlaying)
     {
         gui.func_110326_a(component.getUnformattedText(), isPlaying);

@@ -31,7 +31,7 @@ public class TitleHandler implements IMessageHandler<S45PacketTitle,IMessage> {
                 s1 = s2;
                 break;
             case ACTIONBAR:
-                UraniumPlusClient.getInstance().setRecordPlaying(packetIn.getMessage(),false);
+                UraniumPlusClient.getInstance().setRecordPlaying(s2,false);
                 return;
             case RESET:
                 client.displayTitle("", "", -1, -1, -1);
