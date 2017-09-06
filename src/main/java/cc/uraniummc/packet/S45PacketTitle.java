@@ -1,6 +1,7 @@
 package cc.uraniummc.packet;
 
 import cc.uraniummc.UraniumPlusNetUtils;
+import cc.uraniummc.packet.handler.TitleHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -65,7 +66,7 @@ public class S45PacketTitle extends Packet implements IMessage
     {
         this.type = (S45PacketTitle.Type) UraniumPlusNetUtils.readEnumValue(buf,S45PacketTitle.Type.class);
 
-        if (this.type == S45PacketTitle.Type.TITLE || this.type == S45PacketTitle.Type.SUBTITLE)
+        if (this.type == S45PacketTitle.Type.TITLE || this.type == S45PacketTitle.Type.SUBTITLE  || this.type == S45PacketTitle.Type.ACTIONBAR)
         {
             this.message = UraniumPlusNetUtils.readChatComponent(buf);
         }
@@ -84,7 +85,7 @@ public class S45PacketTitle extends Packet implements IMessage
     {
         UraniumPlusNetUtils.writeEnumValue(buf,this.type);
 
-        if (this.type == S45PacketTitle.Type.TITLE || this.type == S45PacketTitle.Type.SUBTITLE)
+        if (this.type == S45PacketTitle.Type.TITLE || this.type == S45PacketTitle.Type.SUBTITLE || this.type == S45PacketTitle.Type.ACTIONBAR)
         {
             UraniumPlusNetUtils.writeChatComponent(buf,this.message);
         }
@@ -102,9 +103,7 @@ public class S45PacketTitle extends Packet implements IMessage
      */
     public void processPacket(INetHandler handler)
     {
-        /*
-        handler.handleTitle(this);
-        */
+        TitleHandler.handleTitle(this);
     }
 
     @SideOnly(Side.CLIENT)

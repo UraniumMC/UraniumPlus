@@ -14,7 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class TitleHandler implements IMessageHandler<S45PacketTitle,IMessage> {
 
     @SideOnly(Side.CLIENT)
-    public void handleTitle(S45PacketTitle packetIn)
+    public static void handleTitle(S45PacketTitle packetIn)
     {
         UraniumPlusClient client= UraniumPlusClient.getInstance();
         S45PacketTitle.Type s45packettitle$type = packetIn.getType();
