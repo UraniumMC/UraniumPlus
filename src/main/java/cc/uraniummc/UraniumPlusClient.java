@@ -54,10 +54,11 @@ public class UraniumPlusClient {
             gui=(GuiIngameForge)(mc.ingameGUI);
         }
         if(evt.type== RenderGameOverlayEvent.ElementType.ALL){
-            ScaledResolution res = gui.getResolution();
-            int width = res.getScaledWidth();
-            int height = res.getScaledHeight();
-            renderTitle(width, height, evt.partialTicks);
+                ScaledResolution res = gui.getResolution();
+                if(res==null)return;
+                int width = res.getScaledWidth();
+                int height = res.getScaledHeight();
+                renderTitle(width, height, evt.partialTicks);
         }
     }
     @SubscribeEvent
