@@ -11,13 +11,11 @@ import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
-import org.lwjgl.Sys;
 
 /**
  * Created by xjboss on 2017/9/4.
@@ -46,6 +44,7 @@ public class UraniumPlusClient {
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
         instance=this;
+        setDefaultTitlesTimes();
     }
 
     @SubscribeEvent(priority= EventPriority.LOWEST)
