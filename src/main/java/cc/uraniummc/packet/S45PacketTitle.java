@@ -140,8 +140,8 @@ public class S45PacketTitle extends Packet implements IMessage
     {
         TITLE,
         SUBTITLE,
-        TIMES,
         ACTIONBAR,
+        TIMES,
         CLEAR,
         RESET;
 
