@@ -128,7 +128,6 @@ public class UraniumPlusClient {
     }
     public void displayTitle(String title, String subTitle, int timeFadeIn, int displayTime, int timeFadeOut)
     {
-        System.out.println("Now display title");
         if (title == null && subTitle == null && timeFadeIn < 0 && displayTime < 0 && timeFadeOut < 0)
         {
             this.displayedTitle = "";
