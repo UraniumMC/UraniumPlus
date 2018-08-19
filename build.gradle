@@ -19,7 +19,7 @@ apply plugin: 'forge'
 
 ext.configFile = file('build.properties')
 ext.config = parseConfig(configFile)
-version = "1.0"
+version = "1.1"
 group= "cc.uraniummc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "UraniumPlus"
 
@@ -52,7 +52,9 @@ dependencies {
     compile 'org.projectlombok:lombok:1.16.18'
 
 }
-
+processResources{
+    rename '(.+_at.cfg)', 'META-INF/$1'
+}
 def parseConfig(File config) {
     config.withReader {
         def prop = new Properties()

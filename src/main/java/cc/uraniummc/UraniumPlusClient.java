@@ -10,12 +10,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by xjboss on 2017/9/4.
@@ -37,14 +40,19 @@ public class UraniumPlusClient {
     private int titleFadeOut;
     private Minecraft mc= FMLClientHandler.instance().getClient();
     private GuiIngameForge gui=null;
+    private Field recordT;
     @Getter
     private static UraniumPlusClient instance;
-
     UraniumPlusClient(){
         MinecraftForge.EVENT_BUS.register(this);
         FMLCommonHandler.instance().bus().register(this);
         instance=this;
         setDefaultTitlesTimes();
+        try{
+            recordT=GuiIngame.class.getDeclaredField("field_73845_h");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @SubscribeEvent(priority= EventPriority.LOWEST)
@@ -169,9 +177,16 @@ public class UraniumPlusClient {
     public void setRecordPlaying(String text, boolean isPlaying)
     {
         gui.func_110326_a(text, isPlaying);
+        try {
+            recordT.setAccessible(true);
+            recordT.set(gui, this.titleDisplayTime);
+            recordT.setAccessible(false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public void setRecordPlaying(IChatComponent component, boolean isPlaying)
     {
-        gui.func_110326_a(component.getUnformattedText(), isPlaying);
+        setRecordPlaying(component.getUnformattedText(), isPlaying);
     }
 }
